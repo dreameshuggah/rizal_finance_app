@@ -344,7 +344,7 @@ def filterBuyDf(df,forwardPE_cutoff):
         --,price_percChg_52WkHigh
 
         CASE 
-        WHEN price_percChg_52WkHigh < -20 AND price_percChg_52WkLow < 20 THEN 'Buy!'
+        WHEN price_percChg_52WkHigh < -20 AND price_percChg_52WkLow < 50 THEN 'Buy!'
         ELSE '-' END AS recommend
         ,* 
         FROM df

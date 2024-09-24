@@ -88,10 +88,18 @@ with tab1:
     st.write('\nNet Income')
     fig_netincome = px.bar(qtr_df_select, x="date", y="Net Income", color="shortName")
     st.plotly_chart(fig_netincome, key="ticker2", on_select="rerun")
+
+    st.write('\nCash And Cash Equivalents')
+    fig_cash = px.bar(qtr_df_select, x="date", y="Cash And Cash Equivalents", color="shortName")
+    st.plotly_chart(fig_cash, key="ticker3", on_select="rerun")
     
     st.write('\nFree Cash Flow')
-    fig_netincome = px.bar(qtr_df_select, x="date", y="Free Cash Flow", color="shortName")
-    st.plotly_chart(fig_netincome, key="ticker3", on_select="rerun")
+    fig_fcf = px.bar(qtr_df_select, x="date", y="Free Cash Flow", color="shortName")
+    st.plotly_chart(fig_fcf, key="ticker4", on_select="rerun")
+
+    st.write('\nCapital Expenditure')
+    fig_capex = px.bar(qtr_df_select, x="date", y="Capital Expenditure", color="shortName")
+    st.plotly_chart(fig_capex, key="ticker5", on_select="rerun")
     
 
 
@@ -122,6 +130,7 @@ with tab2:
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.write('\n\n\n')
+  
     st.write('\nTotal Revenue')
     fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="shortName")
     st.plotly_chart(fig_revenue, key="ticker_b1", on_select="rerun")
@@ -129,19 +138,24 @@ with tab2:
     st.write('\nNet Income')
     fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName")
     st.plotly_chart(fig_netincome, key="ticker_b2", on_select="rerun")
+
+    st.write('\nCash And Cash Equivalents')
+    fig_cash = px.bar(qtr_df2, x="date", y="Cash And Cash Equivalents", color="shortName")
+    st.plotly_chart(fig_cash, key="ticker_b3", on_select="rerun")
+  
     
     st.write('\nFree Cash Flow')
-    fig_netincome = px.bar(qtr_df2, x="date", y="Free Cash Flow", color="shortName")
-    st.plotly_chart(fig_netincome, key="ticker_b3", on_select="rerun")
+    fig_fcf = px.bar(qtr_df2, x="date", y="Free Cash Flow", color="shortName")
+    st.plotly_chart(fig_fcf, key="ticker_b4", on_select="rerun")
     
     st.write('\nAccounts Receivable')
     fig_act_receivable = px.bar(qtr_df2, x="date", y="Accounts Receivable", color="shortName")
-    st.plotly_chart(fig_act_receivable, key="ticker_b4", on_select="rerun")
+    st.plotly_chart(fig_act_receivable, key="ticker_b5", on_select="rerun")
     
     
     st.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df2, x="date", y="Capital Expenditure", color="shortName")
-    st.plotly_chart(fig_capex, key="ticker_b5", on_select="rerun")
+    st.plotly_chart(fig_capex, key="ticker_b6", on_select="rerun")
     
     
     st.write('\nMonthly Close Price')

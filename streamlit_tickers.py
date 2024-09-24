@@ -20,7 +20,7 @@ import yfinance as yf
 import plotly.express as px
 from ticker_funcs import *
 
-
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
 tab1, tab2 = st.tabs(["Screener", "Tickers Analysis"])

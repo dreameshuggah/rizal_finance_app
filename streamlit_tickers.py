@@ -55,12 +55,15 @@ with tab1:
     """)
 
     st.write('\n\n\n')
+    st.write('\n\n\n')
     forwardPE_cutoff = st.slider("Forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)
     qtr_df1 = financials_quarter(buy_df['ticker'].unique())
     buy_df = filterNetIncomeRatio(buy_df,latestRatios(qtr_df1))
-  
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
     st.write('Recent Statistics')
     st.dataframe(buy_df)#,use_container_width=True)
     
@@ -73,7 +76,7 @@ with tab1:
     qtr_df_select = qtr_df1[qtr_df1['ticker']==ticker_select]
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
             ,'gross_margin','npat_margin'
-            ,'Total Revenue','Net Income','Free Cash Flow','EBITDA'
+            ,'Total Revenue','Net Income','Accounts Receivable','Free Cash Flow','EBITDA'
             ,'Cash And Cash Equivalents','Capital Expenditure'
            ]
     
@@ -97,9 +100,13 @@ with tab1:
     fig_fcf = px.bar(qtr_df_select, x="date", y="Free Cash Flow", color="shortName")
     st.plotly_chart(fig_fcf, key="ticker4", on_select="rerun")
 
+    st.write('\nAccounts Receivable')
+    fig_act = px.bar(qtr_df_select, x="date", y="Accounts Receivable", color="shortName")
+    st.plotly_chart(fig_act, key="ticker5", on_select="rerun")
+
     st.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df_select, x="date", y="Capital Expenditure", color="shortName")
-    st.plotly_chart(fig_capex, key="ticker5", on_select="rerun")
+    st.plotly_chart(fig_capex, key="ticker6", on_select="rerun")
     
 
 

@@ -45,7 +45,13 @@ df = fetchRecent(ticker_list,recent_ls)
 
 
 with tab1:
-    st.title('Potential Buys')
+    st.title(' Stock Screener')
+    st.markdown(""" 
+    Filter by:
+    - total debt / market cap ratio < 0.33
+    - interest income ratio < 0.1
+    - operating margins > 0.1
+    """)
     
     forwardPE_cutoff = st.slider("forwardPE_cutoff (lower = more undervalued)", 10, 50, 26)
     #price_percChg_52WkLow_cutoff = st.slider('price_percChg_52WkLow_cutoff',10,15,10)

@@ -150,7 +150,8 @@ with tab2:
     
     qtr_df2 = financials_quarter(ticker_)
     recent_df2 = df[df['ticker'].isin(ticker_)]
-    price_shares_df2 = closePriceSharesCount(ticker_)
+    #price_shares_df2 = closePriceSharesCount(ticker_)
+    price_shares_df2 = closePriceDailyByList(ticker_)
     
     st.write('Recent statistics')
     st.dataframe(recent_df2)

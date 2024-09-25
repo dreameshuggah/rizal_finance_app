@@ -76,6 +76,7 @@ with tab1:
     st.write('Ticker Quarterly Data')
     buy_tickers=list(buy_df['ticker'].unique())
     ticker_select = st.selectbox('Select a ticker:',buy_tickers)
+    dailyClosePrice_df  = closingPricesDaily(ticker_select)
 
     
 
@@ -117,7 +118,7 @@ with tab1:
     st.plotly_chart(fig_capex, key="ticker6", on_select="rerun")
 
 
-    dailyClosePrice_df  = closingPricesDaily(ticker_select)
+    
     #dailyClosePrice_df['Ticker'] = ticker_select
     st.write('\nDaily Close Price')
     fig_line = px.line(dailyClosePrice_df, x="Date", y="Close")#, color="green")

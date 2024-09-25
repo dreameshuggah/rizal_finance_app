@@ -161,8 +161,8 @@ with tab2:
     st.write('\n\n\n')
     st.write('\n\n\n')
 
-    st.write('\nMonthly Close Price')
-    fig_line = px.line(price_shares_df2, x="date_close_price", y="close_price", color="ticker")
+    st.write('\nDaily Close Price')
+    fig_line = px.line(price_shares_df2, x="Date", y="Close", color="ticker")
     st.plotly_chart(fig_line, key="ticker_b7", on_select="rerun")
   
     st.write('\nTotal Revenue')

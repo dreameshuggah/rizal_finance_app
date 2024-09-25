@@ -293,19 +293,6 @@ def recentTickerFinance(ticker,recent_ls):
 
 
 
-ticker_list = ['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
-               'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
-               'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
-               'CPRT', 'CROX', 'DG', 'ELF', 'DAVA', 'ENPH', 'EXPE', 'XOM', 'FSLR',
-               'FTNT', 'INMD', 'INTC', 'ISRG', 'JNJ', 'LRCX', 'LULU', 'CART',
-               'MA', 'MRK', 'META', 'MU', 'MSFT', 'MRNA', 'MDLZ', 'NFLX',
-               'NKE', 'NVO', 'NVDA', 'OXY', 'OKTA', 'ORCL', 'OTIS', 'PANW',
-               'PYPL', 'PEP', 'PFE', 'PUBM', 'QCOM', 'QLYS', 'RVLV',
-               'NOW', 'SHOP', 'SWKS', 'SFM', 'TSM', 'TGLS', 'TSLA', 'TXRH', 'KO',
-               'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
-               'SMCI', 'GFS', 'MRVL']
-
-
 
 def recentFinance(ticker_ls,recent_ls):
     df = pd.DataFrame()
@@ -324,8 +311,7 @@ def fetchRecent(ticker_list,recent_ls):
     
     qry_recent_ratios = """
                     SELECT
-                    --ROUND((currentPrice/fiftyTwoWeekLow)-1,4)*100 AS price_percChg_52WkLow
-                    -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS price_percChg_52WkHigh
+                    -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS perc_Chg_52WkHigh
                     ,totalDebt/marketCap AS debt_ratio
                     ,*
                     FROM df 
@@ -342,20 +328,16 @@ def filterBuyDf(df,forwardPE_cutoff):
         SELECT 
 
         CASE 
-        WHEN price_percChg_52WkHigh > -10 AND price_percChg_52WkHigh <= -5 THEN 'Dip'
-        WHEN price_percChg_52WkHigh > -20 AND price_percChg_52WkHigh <= -10 THEN 'Correction'
-        WHEN price_percChg_52WkHigh <= -20 THEN 'Bearish'
+        WHEN perc_Chg_52WkHigh > -10 AND perc_Chg_52WkHigh <= -5 THEN 'Dip'
+        WHEN perc_Chg_52WkHigh > -20 AND perc_Chg_52WkHigh <= -10 THEN 'Correction'
+        WHEN perc_Chg_52WkHigh <= -20 THEN 'Bearish'
         ELSE '-' END AS market_trend
-        
-        
-        --,CASE WHEN price_percChg_52WkHigh < -20 THEN 'Buy!'
-        --ELSE '-' END AS recommend
         ,* 
         FROM df
 
         WHERE debt_ratio < 0.33
         AND operatingMargins >= 0.1
-        AND price_percChg_52WkHigh < -20
+        --AND perc_Chg_52WkHigh < -20
         AND forwardPE < {forwardPE_cutoff}
         
         ORDER BY forwardPE

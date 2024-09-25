@@ -119,9 +119,9 @@ with tab1:
 
     dailyClosePrice_df  = closingPricesDaily(ticker_select)
     st.write('\nDaily Close Price')
-    fig_line = px.line(dailyClosePrice_df, x="Date", y="Close", color="ticker")
+    fig_line = px.line(dailyClosePrice_df, x="Date", y="Close")#, color="green")
     st.plotly_chart(fig_line, key="ticker7", on_select="rerun")
-    #st.dataframe(dailyClosePrice_df)
+    st.dataframe(dailyClosePrice_df)
 
 
 

@@ -42,7 +42,6 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
 
 
 df = fetchRecent(ticker_list,recent_ls)
-df = marketTrend(df)
 
 with tab1:
     st.title('Stock Screener')

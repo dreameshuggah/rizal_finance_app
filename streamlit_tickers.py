@@ -23,7 +23,7 @@ from ticker_funcs import *
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
-tab1, tab2 = st.tabs(["Screener", "Tickers Analysis"])
+tab1, tab2 = st.tabs(["Screener", "Multi-Comparison"])
 
 
 
@@ -135,7 +135,7 @@ with tab1:
 # In[16]:
 
 with tab2:
-    st.title('Ticker Analytics')
+    st.title('Stocks Comparison')
     
     ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','QCOM','AMD','MU'])
     

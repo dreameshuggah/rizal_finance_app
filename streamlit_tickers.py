@@ -54,9 +54,7 @@ with tab1:
     - operating margins > 0.1
     """)
 
-    st.write('\n\n\n')
-    st.write('\n\n\n')
-    st.write('\n\n\n')
+    st.markdown("#")
     forwardPE_cutoff = st.slider("Forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)
@@ -67,9 +65,7 @@ with tab1:
     st.dataframe(buy_df)#,use_container_width=True)
     
 
-    st.write('\n\n\n')
-    st.write('\n\n\n')
-    st.write('\n\n\n')
+    st.markdown("##")
     st.write('Ticker Quarterly Data')
     buy_tickers=list(buy_df['ticker'].unique())
     ticker_select = st.selectbox('Select a ticker:',buy_tickers)
@@ -78,14 +74,12 @@ with tab1:
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
             ,'gross_margin','npat_margin'
             ,'Total Revenue','Net Income','Free Cash Flow','EBITDA'
-            ,'Cash And Cash Equivalents'
+            ,'Cash And Cash Equivalents','Capital Expenditure'
            ]
     
     st.dataframe(qtr_df_select[cols],use_container_width=True)
     
-    st.write('\n\n\n')
-    st.write('\n\n\n')
-    st.write('\n\n\n')
+    st.markdown("##")
     
     st.write('\nTotal Revenue')
     fig_revenue = px.bar(qtr_df_select, x="date", y="Total Revenue", color="shortName")

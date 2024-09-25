@@ -141,7 +141,6 @@ with tab2:
     ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','QCOM','AMD','MU'])
     
     qtr_df2 = financials_quarter(ticker_)
-    qtr_df2= marketTrend(qtr_df2)
     recent_df2 = df[df['ticker'].isin(ticker_)]
     price_shares_df2 = closePriceSharesCount(ticker_)
     

@@ -324,8 +324,8 @@ def fetchRecent(ticker_list,recent_ls):
     
     qry_recent_ratios = """
                     SELECT
-                    ROUND((currentPrice/fiftyTwoWeekLow)-1,4)*100 AS price_percChg_52WkLow
-                    ,-ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS price_percChg_52WkHigh
+                    --ROUND((currentPrice/fiftyTwoWeekLow)-1,4)*100 AS price_percChg_52WkLow
+                    -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS price_percChg_52WkHigh
                     ,totalDebt/marketCap AS debt_ratio
                     ,*
                     FROM df 
@@ -340,11 +340,15 @@ def fetchRecent(ticker_list,recent_ls):
 def filterBuyDf(df,forwardPE_cutoff):
     qry="""
         SELECT 
-        --price_percChg_52WkLow
-        --,price_percChg_52WkHigh
 
         CASE 
-        WHEN price_percChg_52WkHigh < -20 AND price_percChg_52WkLow < 50 THEN 'Buy!'
+        WHEN price_percChg_52WkHigh > -10 AND price_percChg_52WkHigh <= -5 THEN 'Dip'
+        WHEN price_percChg_52WkHigh > -20 AND price_percChg_52WkHigh <= -10 THEN 'Correction'
+        when price_percChg_52WkHigh > -30 AND price_percChg_52WkHigh <= -20 THEN 'Bearish'
+        ELSE '-' END AS trend
+        
+        
+        ,CASE WHEN price_percChg_52WkHigh < -20 THEN 'Buy!'
         ELSE '-' END AS recommend
         ,* 
         FROM df
@@ -353,13 +357,10 @@ def filterBuyDf(df,forwardPE_cutoff):
         AND operatingMargins >= 0.1
         AND price_percChg_52WkHigh < -20
         AND forwardPE < {forwardPE_cutoff}
-       
-
-
+        
         ORDER BY price_percChg_52WkHigh
         """.format(forwardPE_cutoff=forwardPE_cutoff)
-                   #,price_percChg_52WkLow_cutoff=price_percChg_52WkLow_cutoff
-                   #,price_percChg_52WkHigh_cutoff=price_percChg_52WkHigh_cutoff)
+
 
     buy_df = sqldf(qry,locals())
     return buy_df

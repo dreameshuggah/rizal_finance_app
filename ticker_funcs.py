@@ -256,6 +256,7 @@ def latestRatios(df):
                                     SELECT 
                                     a.ticker AS ticker_b
                                     ,a.interest_income_ratio
+                                    ,a.net_interest_income_ratio
                                     --,a.perc_chg_total_revenue
                                     --,a.Zone
                                     FROM df a
@@ -268,6 +269,7 @@ def latestRatios(df):
                                               ) b on a.ticker = b.ticker AND a.date = b.max_date
                                     """,locals())
     interest_income_ratio_df['interest_income_ratio']=interest_income_ratio_df['interest_income_ratio'].fillna(0)
+    interest_income_ratio_df['net_interest_income_ratio']=interest_income_ratio_df['net_interest_income_ratio'].fillna(0)
     return interest_income_ratio_df
 
 
@@ -380,7 +382,7 @@ def filterNetIncomeRatio(buy_df,interest_income_ratio_df):
                 SELECT *
                 FROM buy_df a
                 LEFT JOIN interest_income_ratio_df b ON a.ticker = b.ticker_b
-                WHERE b.interest_income_ratio < 0.05
+                WHERE b.interest_income_ratio < 0.05 OR b.net_interest_income_ratio < 0.05
                 """,locals())
     buy_df = buy_df.drop(columns=['ticker_b'])
     return buy_df

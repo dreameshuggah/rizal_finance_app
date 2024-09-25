@@ -76,6 +76,10 @@ with tab1:
     st.write('Ticker Quarterly Data')
     buy_tickers=list(buy_df['ticker'].unique())
     ticker_select = st.selectbox('Select a ticker:',buy_tickers)
+
+    
+
+  
     
     qtr_df_select = qtr_df1[qtr_df1['ticker']==ticker_select]
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
@@ -111,7 +115,10 @@ with tab1:
     st.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df_select, x="date", y="Capital Expenditure", color="shortName")
     st.plotly_chart(fig_capex, key="ticker6", on_select="rerun")
-    
+
+
+    dailyClosePrice_df  = closingPricesDaily(ticker_select)
+    st.dataframe(dailyClosePrice_df)
 
 
 

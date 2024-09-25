@@ -26,6 +26,7 @@ def closingPricesDaily(ticker):
     df = yf.download(ticker, period="5y")
     df.reset_index(inplace=True)
     df['Ticker']= ticker
+    df['Date'] = pd.to_datetime(df['Date']).dt.date
     return df[['Ticker','Date','Close']]
 
 

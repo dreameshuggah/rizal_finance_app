@@ -118,7 +118,13 @@ def closePriceSharesCount(ticker_list):
     return df
 
 
-# In[3]:
+def closePriceDailyByList(ticker_list):
+    df = pd.DataFrame()
+    for ticker in ticker_list:
+        #print(ticker)
+        tmp_df = closingPricesDaily(ticker)
+        df = pd.concat([df,tmp_df])
+    return df
 
 
 #========== QUARTERLY FINANCIALS ===========

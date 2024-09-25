@@ -55,6 +55,7 @@ with tab1:
     - total debt / market cap ratio < 0.33
     - interest income ratio < 0.05
     - operating margins > 0.1
+    - forward PE 
     """)
 
     st.write('\n\n\n')

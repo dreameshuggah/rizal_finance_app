@@ -27,7 +27,7 @@ def closingPricesDaily(ticker):
     df.reset_index(inplace=True)
     df['Ticker']= ticker
     df['Date'] = pd.to_datetime(df['Date']).dt.date
-    return df[['Ticker','Date','Close']]
+    return df[['Ticker','Date','Close']].sort_values(by=['Date'],ascending=False)
 
 
 

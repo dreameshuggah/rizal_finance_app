@@ -46,7 +46,7 @@ df = fetchRecent(ticker_list,recent_ls)
 
 with tab1:
     st.title('Stock Screener')
-    st.markdown("###")
+    st.markdown("#")
     st.markdown(""" 
     Filter by:
     - total debt / market cap ratio < 0.33
@@ -54,7 +54,7 @@ with tab1:
     - operating margins > 0.1
     """)
 
-    st.markdown("#")
+    st.write('\n\n\n')
     forwardPE_cutoff = st.slider("Forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)

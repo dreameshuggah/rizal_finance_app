@@ -100,14 +100,16 @@ with tab1:
     st.dataframe(qtr_df_select[cols],use_container_width=True)
     
     st.markdown("##")
-    
-    st.write('\nTotal Revenue')
+
+
+    col1_chart, col2_chart = st.columns(2)
+    col1_chart.write('\nTotal Revenue')
     fig_revenue = px.bar(qtr_df_select, x="date", y="Total Revenue", color="shortName")
-    st.plotly_chart(fig_revenue, key="ticker1", on_select="rerun")
+    col1_chart.plotly_chart(fig_revenue, key="ticker1", on_select="rerun")
     
-    st.write('\nNet Income')
+    col2_chart.write('\nNet Income')
     fig_netincome = px.bar(qtr_df_select, x="date", y="Net Income", color="shortName")
-    st.plotly_chart(fig_netincome, key="ticker2", on_select="rerun")
+    col2_chart.plotly_chart(fig_netincome, key="ticker2", on_select="rerun")
 
     st.write('\nCash And Cash Equivalents')
     fig_cash = px.bar(qtr_df_select, x="date", y="Cash And Cash Equivalents", color="shortName")

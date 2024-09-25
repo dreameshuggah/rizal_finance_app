@@ -44,7 +44,8 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
 df = fetchRecent(ticker_list,recent_ls)
 
 with tab1:
-    st.title('Stock Screener')
+    st.title('Stocks Screener')
+  
 
     st.write('\n\n\n')
     st.write('\n\n\n')

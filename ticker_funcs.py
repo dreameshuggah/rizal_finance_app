@@ -25,7 +25,8 @@ import yfinance as yf
 def closingPricesDaily(ticker):
     df = yf.download(ticker, period="5y")
     df.reset_index(inplace=True)
-    return df[['Date','Close']]
+    df['Ticker']= ticker
+    return df[['Ticker','Date','Close']]
 
 
 

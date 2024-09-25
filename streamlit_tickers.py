@@ -78,7 +78,9 @@ with tab1:
     st.markdown("##")
     
     buy_tickers=list(buy_df['ticker'].unique())
-    ticker_select = st.selectbox('Select a ticker:',buy_tickers)
+
+    col1a, col2a = st.columns(2)
+    ticker_select = col1a.selectbox('Select a ticker:',buy_tickers)
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.write('Ticker Quarterly Data')

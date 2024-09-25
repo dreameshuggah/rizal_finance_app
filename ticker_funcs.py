@@ -344,12 +344,12 @@ def filterBuyDf(df,forwardPE_cutoff):
         CASE 
         WHEN price_percChg_52WkHigh > -10 AND price_percChg_52WkHigh <= -5 THEN 'Dip'
         WHEN price_percChg_52WkHigh > -20 AND price_percChg_52WkHigh <= -10 THEN 'Correction'
-        when price_percChg_52WkHigh > -30 AND price_percChg_52WkHigh <= -20 THEN 'Bearish'
-        ELSE '-' END AS trend
+        WHEN price_percChg_52WkHigh <= -20 THEN 'Bearish'
+        ELSE '-' END AS market_trend
         
         
-        ,CASE WHEN price_percChg_52WkHigh < -20 THEN 'Buy!'
-        ELSE '-' END AS recommend
+        --,CASE WHEN price_percChg_52WkHigh < -20 THEN 'Buy!'
+        --ELSE '-' END AS recommend
         ,* 
         FROM df
 
@@ -358,7 +358,7 @@ def filterBuyDf(df,forwardPE_cutoff):
         AND price_percChg_52WkHigh < -20
         AND forwardPE < {forwardPE_cutoff}
         
-        ORDER BY price_percChg_52WkHigh
+        ORDER BY forwardPE
         """.format(forwardPE_cutoff=forwardPE_cutoff)
 
 

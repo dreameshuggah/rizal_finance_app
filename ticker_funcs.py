@@ -22,6 +22,13 @@ import yfinance as yf
 
 #======== SHARE PRICE & COUNTS ================
 
+def closingPricesDaily(ticker):
+    df = yf.download(ticker, period="5y")
+    df.reset_index(inplace=True)
+    return df[['Date','Close']]
+
+
+
 def closingPrices(ticker):
     df = yf.download(ticker, period="5y")
     df.reset_index(inplace=True)

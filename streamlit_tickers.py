@@ -45,28 +45,27 @@ df = fetchRecent(ticker_list,recent_ls)
 
 
 with tab1:
-    st.title(' Stock Screener')
+    st.title('Stock Screener')
     st.markdown(""" 
     Filter by:
     - total debt / market cap ratio < 0.33
-    - interest income ratio < 0.1
+    - interest income ratio < 0.05
     - operating margins > 0.1
     """)
-    
-    forwardPE_cutoff = st.slider("forward PE cutoff", 10, 40, 25)
-    #price_percChg_52WkLow_cutoff = st.slider('price_percChg_52WkLow_cutoff',10,15,10)
-    #price_percChg_52WkHigh_cutoff = st.slider('price_percChg_52WkHigh_cutoff',-50,-15,-25)
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    forwardPE_cutoff = st.slider("forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)
     qtr_df1 = financials_quarter(buy_df['ticker'].unique())
     buy_df = filterNetIncomeRatio(buy_df,latestRatios(qtr_df1))
-
+  
+    st.write('Recent Statistics')
     st.dataframe(buy_df)#,use_container_width=True)
     
 
-    
-    
-    
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.write('\n\n\n')

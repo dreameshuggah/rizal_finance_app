@@ -382,7 +382,8 @@ def filterNetIncomeRatio(buy_df,interest_income_ratio_df):
                 SELECT *
                 FROM buy_df a
                 LEFT JOIN interest_income_ratio_df b ON a.ticker = b.ticker_b
-                WHERE b.interest_income_ratio < 0.05 OR b.net_interest_income_ratio < 0.05
+                WHERE b.interest_income_ratio < 0.05 
+                AND b.net_interest_income_ratio < 0.05
                 """,locals())
     buy_df = buy_df.drop(columns=['ticker_b'])
     return buy_df

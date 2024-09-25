@@ -136,7 +136,7 @@ with tab1:
 with tab2:
     st.title('Ticker Analytics')
     
-    ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','TSM','QCOM','AMD','MU'])
+    ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','QCOM','AMD','MU'])
     
     qtr_df2 = financials_quarter(ticker_)
     recent_df2 = df[df['ticker'].isin(ticker_)]

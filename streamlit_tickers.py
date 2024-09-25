@@ -62,7 +62,7 @@ with tab1:
     st.write('\n\n\n')
     st.write('\n\n\n')
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1,3])
     forwardPE_cutoff = col1.slider("Forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)
@@ -79,7 +79,7 @@ with tab1:
     
     buy_tickers=list(buy_df['ticker'].unique())
 
-    col1a, col2a = st.columns(2)
+    col1a, col2a = st.columns([1,3])
     ticker_select = col1a.selectbox('Select a ticker:',buy_tickers)
     st.write('\n\n\n')
     st.write('\n\n\n')

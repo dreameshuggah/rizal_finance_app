@@ -61,7 +61,9 @@ with tab1:
 
     st.write('\n\n\n')
     st.write('\n\n\n')
-    forwardPE_cutoff = st.slider("Forward PE cut-off", 10, 40, 25)
+
+    col1, col2 = st.columns(2)
+    forwardPE_cutoff = col1.slider("Forward PE cut-off", 10, 40, 25)
         
     buy_df = filterBuyDf(df,forwardPE_cutoff)
     qtr_df1 = financials_quarter(buy_df['ticker'].unique())

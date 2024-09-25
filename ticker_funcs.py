@@ -329,10 +329,7 @@ def fetchRecent(ticker_list,recent_ls):
     return df
 
 
-
-
-
-def filterBuyDf(df,forwardPE_cutoff):
+def marketTrend(df):
     qry="""
         SELECT 
 
@@ -342,6 +339,14 @@ def filterBuyDf(df,forwardPE_cutoff):
         WHEN perc_Chg_52WkHigh <= -20 THEN 'Bearish'
         ELSE '-' END AS market_trend
         ,* 
+        FROM df
+        """
+return sqldf(qry,locals())
+
+
+def filterBuyDf(df,forwardPE_cutoff):
+    qry="""
+        SELECT * 
         FROM df
 
         WHERE debt_ratio < 0.33

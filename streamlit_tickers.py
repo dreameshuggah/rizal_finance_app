@@ -53,7 +53,7 @@ with tab1:
     - operating margins > 0.1
     """)
     
-    forwardPE_cutoff = st.slider("forwardPE_cutoff (lower = more undervalued)", 10, 50, 26)
+    forwardPE_cutoff = st.slider("forward PE cutoff", 10, 40, 25)
     #price_percChg_52WkLow_cutoff = st.slider('price_percChg_52WkLow_cutoff',10,15,10)
     #price_percChg_52WkHigh_cutoff = st.slider('price_percChg_52WkHigh_cutoff',-50,-15,-25)
         

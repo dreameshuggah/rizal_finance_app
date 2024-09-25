@@ -46,9 +46,13 @@ df = fetchRecent(ticker_list,recent_ls)
 
 with tab1:
     st.title('Stock Screener')
-    st.markdown("#")
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+
     st.markdown(""" 
-    Filter by:
+    Filter:
     - total debt / market cap ratio < 0.33
     - interest income ratio < 0.05
     - operating margins > 0.1

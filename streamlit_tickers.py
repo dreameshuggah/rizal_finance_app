@@ -72,9 +72,12 @@ with tab1:
     
 
     st.markdown("##")
-    st.write('Ticker Quarterly Data')
+    
     buy_tickers=list(buy_df['ticker'].unique())
     ticker_select = st.selectbox('Select a ticker:',buy_tickers)
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    st.write('Ticker Quarterly Data')
     dailyClosePrice_df  = closingPricesDaily(ticker_select)
 
     

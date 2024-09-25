@@ -313,21 +313,6 @@ def recentFinance(ticker_ls,recent_ls):
 
 
 
-import streamlit as st
-@st.cache_data
-def fetchRecent(ticker_list,recent_ls):
-    df = recentFinance(ticker_list,recent_ls)
-    
-    qry_recent_ratios = """
-                    SELECT
-                    -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS perc_Chg_52WkHigh
-                    ,totalDebt/marketCap AS debt_ratio
-                    ,*
-                    FROM df 
-                    """
-    df = sqldf(qry_recent_ratios,locals())
-    return df
-
 
 def marketTrend(df):
     qry="""
@@ -341,7 +326,28 @@ def marketTrend(df):
         ,* 
         FROM df
         """
-return sqldf(qry,locals())
+    return sqldf(qry,locals())
+
+
+
+
+import streamlit as st
+@st.cache_data
+def fetchRecent(ticker_list,recent_ls):
+    df = recentFinance(ticker_list,recent_ls)
+    
+    qry_recent_ratios = """
+                    SELECT
+                    -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS perc_Chg_52WkHigh
+                    ,totalDebt/marketCap AS debt_ratio
+                    ,*
+                    FROM df 
+                    """
+    df = sqldf(qry_recent_ratios,locals())
+    return marketTrend(df)
+
+
+
 
 
 def filterBuyDf(df,forwardPE_cutoff):

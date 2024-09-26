@@ -52,7 +52,7 @@ with tab1:
     st.write('\n\n\n')
     st.write('\n\n\n')
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([3,1])
     
     
     col1.markdown(""" 

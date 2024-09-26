@@ -38,7 +38,8 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
                'PYPL', 'PEP', 'PFE', 'PUBM', 'QCOM', 'QLYS', 'RVLV',
                'NOW', 'SHOP', 'SWKS', 'SFM', 'TSM', 'TGLS', 'TSLA', 'TXRH', 'KO',
                'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
-               'SMCI', 'GFS', 'MRVL','DELL']))
+               'SMCI', 'GFS', 'MRVL','DELL','ANF'
+                       ]))
 
 
 df = fetchRecent(ticker_list,recent_ls)

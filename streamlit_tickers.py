@@ -94,7 +94,7 @@ with tab1:
 
     
 
-    longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values
+    longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'][0]
     st.write(longBusinessSummary)
     
     qtr_df_select = qtr_df1[qtr_df1['ticker']==ticker_select]

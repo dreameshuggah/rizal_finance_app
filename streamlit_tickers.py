@@ -153,6 +153,7 @@ with tab1:
 
     st.write('\n\n\n')
     st.write('\n\n\n')
+    st.write('Company Profile')
     st.write(longBusinessSummary)
 
 

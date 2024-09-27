@@ -90,7 +90,9 @@ with tab1:
     
     dailyClosePrice_df  = closingPricesDaily(ticker_select)
     longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values[0]
-    
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
     st.write(longBusinessSummary)
     st.write('\n\n\n')
     st.write('\n\n\n')

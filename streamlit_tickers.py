@@ -94,7 +94,8 @@ with tab1:
 
     
 
-  
+    longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values
+    st.write(longBusinessSummary)
     
     qtr_df_select = qtr_df1[qtr_df1['ticker']==ticker_select]
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
@@ -102,6 +103,8 @@ with tab1:
             ,'Total Revenue','Net Income','Accounts Receivable','Free Cash Flow','EBITDA'
             ,'Cash And Cash Equivalents','Capital Expenditure'
            ]
+
+
     
     st.dataframe(qtr_df_select[cols],use_container_width=True)
     

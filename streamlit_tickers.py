@@ -87,15 +87,14 @@ with tab1:
 
     col1a, col2a = st.columns([1,3])
     ticker_select = col1a.selectbox('Select a ticker:',buy_tickers)
+    
+    dailyClosePrice_df  = closingPricesDaily(ticker_select)
+    longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values[0]
+    
+    st.write(longBusinessSummary)
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.write('Ticker Quarterly Data')
-    dailyClosePrice_df  = closingPricesDaily(ticker_select)
-
-    
-
-    longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values[0]
-    st.write(longBusinessSummary)
     
     qtr_df_select = qtr_df1[qtr_df1['ticker']==ticker_select]
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'

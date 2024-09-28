@@ -190,29 +190,29 @@ with tab2:
     st.plotly_chart(fig_line, key="ticker_b7", on_select="rerun")
   
     st.write('\nTotal Revenue')
-    fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="shortName",barmode='group')
+    fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="shortName")#,barmode='group')
     st.plotly_chart(fig_revenue, key="ticker_b1", on_select="rerun")
     
     st.write('\nNet Income')
-    fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName",barmode='group')
+    fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName")#,barmode='group')
     st.plotly_chart(fig_netincome, key="ticker_b2", on_select="rerun")
 
     st.write('\nCash And Cash Equivalents')
-    fig_cash = px.bar(qtr_df2, x="date", y="Cash And Cash Equivalents", color="shortName",barmode='group')
+    fig_cash = px.bar(qtr_df2, x="date", y="Cash And Cash Equivalents", color="shortName")#,barmode='group')
     st.plotly_chart(fig_cash, key="ticker_b3", on_select="rerun")
   
     
     st.write('\nFree Cash Flow')
-    fig_fcf = px.bar(qtr_df2, x="date", y="Free Cash Flow", color="shortName",barmode='group')
+    fig_fcf = px.bar(qtr_df2, x="date", y="Free Cash Flow", color="shortName")#,barmode='group')
     st.plotly_chart(fig_fcf, key="ticker_b4", on_select="rerun")
     
     st.write('\nAccounts Receivable')
-    fig_act_receivable = px.bar(qtr_df2, x="date", y="Accounts Receivable", color="shortName",barmode='group')
+    fig_act_receivable = px.bar(qtr_df2, x="date", y="Accounts Receivable", color="shortName")#,barmode='group')
     st.plotly_chart(fig_act_receivable, key="ticker_b5", on_select="rerun")
     
     
     st.write('\nCapital Expenditure')
-    fig_capex = px.bar(qtr_df2, x="date", y="Capital Expenditure", color="shortName",barmode='group')
+    fig_capex = px.bar(qtr_df2, x="date", y="Capital Expenditure", color="shortName")#,barmode='group')
     st.plotly_chart(fig_capex, key="ticker_b6", on_select="rerun")
     
     

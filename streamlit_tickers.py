@@ -123,18 +123,21 @@ with tab1:
 
     
     st.dataframe(qtr_df_select[cols],use_container_width=True)
-    
-    st.markdown("##")
 
+
+
+    # ======================== TAB 1 BAR CHARTS ===================  
+    st.markdown("##")
+    
     col1_chart, col2_chart = st.columns(2)
     
     col1_chart.write('\nTotal Revenue')
     fig_revenue = px.bar(qtr_df_select, x="date", y="Total Revenue", color="shortName")
-    col1_chart.plotly_chart(fig_revenue, key="ticker1", on_select="rerun")
+    col1_chart.plotly_chart(fig_revenue, key="ticker1")#, on_select="rerun")
     
     col2_chart.write('\nNet Income')
     fig_netincome = px.bar(qtr_df_select, x="date", y="Net Income", color="shortName")
-    col2_chart.plotly_chart(fig_netincome, key="ticker2", on_select="rerun")
+    col2_chart.plotly_chart(fig_netincome, key="ticker2")#, on_select="rerun")
 
     
     
@@ -142,11 +145,11 @@ with tab1:
     
     col1_chart_a.write('\nFree Cash Flow')
     fig_fcf = px.bar(qtr_df_select, x="date", y="Free Cash Flow", color="shortName")
-    col1_chart_a.plotly_chart(fig_fcf, key="ticker4", on_select="rerun")
+    col1_chart_a.plotly_chart(fig_fcf, key="ticker4")#, on_select="rerun")
 
     col2_chart_a.write('\nAccounts Receivable')
     fig_act = px.bar(qtr_df_select, x="date", y="Accounts Receivable", color="shortName")
-    col2_chart_a.plotly_chart(fig_act, key="ticker5", on_select="rerun")
+    col2_chart_a.plotly_chart(fig_act, key="ticker5")#, on_select="rerun")
 
 
   
@@ -154,18 +157,18 @@ with tab1:
     
     col1_chart_b.write('\nCash And Cash Equivalents')
     fig_cash = px.bar(qtr_df_select, x="date", y="Cash And Cash Equivalents", color="shortName")
-    col1_chart_b.plotly_chart(fig_cash, key="ticker3", on_select="rerun")
+    col1_chart_b.plotly_chart(fig_cash, key="ticker3")#, on_select="rerun")
     
     col2_chart_b.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df_select, x="date", y="Capital Expenditure", color="shortName")
-    col2_chart_b.plotly_chart(fig_capex, key="ticker6", on_select="rerun")
+    col2_chart_b.plotly_chart(fig_capex, key="ticker6")#, on_select="rerun")
 
 
     
     #dailyClosePrice_df['Ticker'] = ticker_select
     st.write('\nDaily Close Price')
     fig_line = px.line(dailyClosePrice_df, x="Date", y="Close")#, color="green")
-    st.plotly_chart(fig_line, key="ticker7", on_select="rerun")
+    st.plotly_chart(fig_line, key="ticker7")#, on_select="rerun")
     st.dataframe(dailyClosePrice_df)
 
     st.write('\n\n\n')
@@ -182,7 +185,7 @@ with tab1:
 # ### By Ticker only:
 
 # In[16]:
-
+#===================== TAB 2 =============================
 with tab2:
     st.title('Stocks Comparison')
     
@@ -201,7 +204,7 @@ with tab2:
     st.write('\n\n\n')
     st.write('\n\n\n')
 
-    # SCATTER PLOT
+    #============ TAB2  SCATTER PLOT =================
     st.markdown("""
     Return On Equity vs Operating Margins : 
     - size by Forward PE
@@ -213,38 +216,38 @@ with tab2:
                              , symbol = 'market_trend'
                              , hover_data=['ticker','market_trend','currentPrice','perc_Chg_52WkHigh']
                              )
-    st.plotly_chart(fig_scatter2, key="ticker_b8", on_select="rerun")
+    st.plotly_chart(fig_scatter2, key="ticker_b8")#, on_select="rerun")
 
     st.write('\nMonthly Close Price')
     #fig_line = px.line(price_shares_df2, x="Date", y="Close", color="Ticker")
     fig_line = px.line(price_shares_df2, x="date_close_price", y="close_price", color="ticker")
-    st.plotly_chart(fig_line, key="ticker_b7", on_select="rerun")
+    st.plotly_chart(fig_line, key="ticker_b7")#, on_select="rerun")
   
     st.write('\nTotal Revenue')
     fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_revenue, key="ticker_b1", on_select="rerun")
+    st.plotly_chart(fig_revenue, key="ticker_b1")#, on_select="rerun")
     
     st.write('\nNet Income')
     fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_netincome, key="ticker_b2", on_select="rerun")
+    st.plotly_chart(fig_netincome, key="ticker_b2")#, on_select="rerun")
 
     st.write('\nCash And Cash Equivalents')
     fig_cash = px.bar(qtr_df2, x="date", y="Cash And Cash Equivalents", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_cash, key="ticker_b3", on_select="rerun")
+    st.plotly_chart(fig_cash, key="ticker_b3")#, on_select="rerun")
   
     
     st.write('\nFree Cash Flow')
     fig_fcf = px.bar(qtr_df2, x="date", y="Free Cash Flow", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_fcf, key="ticker_b4", on_select="rerun")
+    st.plotly_chart(fig_fcf, key="ticker_b4")#, on_select="rerun")
     
     st.write('\nAccounts Receivable')
     fig_act_receivable = px.bar(qtr_df2, x="date", y="Accounts Receivable", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_act_receivable, key="ticker_b5", on_select="rerun")
+    st.plotly_chart(fig_act_receivable, key="ticker_b5")#, on_select="rerun")
     
     
     st.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df2, x="date", y="Capital Expenditure", color="shortName")#,barmode='group')
-    st.plotly_chart(fig_capex, key="ticker_b6", on_select="rerun")
+    st.plotly_chart(fig_capex, key="ticker_b6")#, on_select="rerun")
     
     
     

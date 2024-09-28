@@ -81,9 +81,9 @@ with tab1:
     st.dataframe(buy_df)#,use_container_width=True)
 
 
-    #fig_scatter = px.scatter(df, x="sepal_width", y="sepal_length", color="species",size='petal_length', hover_data=['petal_width'])
+    
     # SCATTER PLOT
-    fig_scatter = px.scatter(buy_df, x="operatingMargins", y="returnOnEquity", color="market_trend"
+    fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-'], x="operatingMargins", y="returnOnEquity", color="market_trend"
                              ,size= 'forwardPE'
                              , hover_data=['shortName'])
     st.plotly_chart(fig_scatter, key="ticker0", on_select="rerun")

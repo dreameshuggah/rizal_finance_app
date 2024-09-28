@@ -201,6 +201,19 @@ with tab2:
     st.write('\n\n\n')
     st.write('\n\n\n')
 
+    # SCATTER PLOT
+    st.markdown("""
+    Return On Equity vs Operating Margins : 
+    - size by Forward PE
+    """)
+    fig_scatter2 = px.scatter(recent_df2[recent_df2['returnOnEquity']<1]
+                             , x="operatingMargins", y="returnOnEquity"
+                             , color="market_trend"
+                             , size= 'forwardPE'
+                             , symbol = 'market_trend'
+                             , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])
+    st.plotly_chart(fig_scatter2, key="ticker8", on_select="rerun")
+
     st.write('\nMonthly Close Price')
     #fig_line = px.line(price_shares_df2, x="Date", y="Close", color="Ticker")
     fig_line = px.line(price_shares_df2, x="date_close_price", y="close_price", color="ticker")

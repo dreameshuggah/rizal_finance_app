@@ -375,8 +375,8 @@ def filterBuyDf(df,forwardPE_cutoff):
     buy_df = sqldf(qry,locals())
     return buy_df
 
-
-
+import streamlit as st
+@st.cache_data
 def filterNetIncomeRatio(buy_df,interest_income_ratio_df):
     buy_df = sqldf("""
                 SELECT *

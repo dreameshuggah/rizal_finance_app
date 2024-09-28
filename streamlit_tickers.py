@@ -83,6 +83,8 @@ with tab1:
 
     
     # SCATTER PLOT
+    st.write('\n\n\n')
+    st.write('\n\n\n')
     st.write('operatingMargins vs returnOnEquity : Size by ForwardPE')
     fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-']
                              , x="operatingMargins", y="returnOnEquity"

@@ -210,7 +210,7 @@ with tab2:
                              , x="operatingMargins", y="returnOnEquity"
                              , color="shortName"
                              , size= 'forwardPE'
-                             , symbol = 'market_trend'
+                             #, symbol = 'market_trend'
                              , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])
     st.plotly_chart(fig_scatter2, key="ticker_b8", on_select="rerun")
 

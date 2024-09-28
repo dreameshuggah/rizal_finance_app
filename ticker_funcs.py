@@ -128,7 +128,8 @@ def closePriceDailyByList(ticker_list):
 
 
 #========== QUARTERLY FINANCIALS ===========
-
+import streamlit as st
+@st.cache_data
 def financials_quarter(ticker_list):
     qtr_cols = list(set(['ticker','shortName','sector','industry','Total Assets','Total Liabilities Net Minority Interest'
             ,'Other Intangible Assets','Total Debt','Interest Income','Total Revenue'

@@ -79,6 +79,14 @@ with tab1:
     st.write('\n\n\n')
     st.write('Recent Statistics')
     st.dataframe(buy_df)#,use_container_width=True)
+
+
+    #fig_scatter = px.scatter(df, x="sepal_width", y="sepal_length", color="species",size='petal_length', hover_data=['petal_width'])
+    
+    fig_scatter = px.scatter(buy_df, x="forwardPE", y="perc_Chg_52WkHigh", color="market_trend"
+                             #,size=''
+                             , hover_data=['shortName'])
+    st.plotly_chart(fig_scatter, key="ticker0", on_select="rerun")
     
 
     st.markdown("##")

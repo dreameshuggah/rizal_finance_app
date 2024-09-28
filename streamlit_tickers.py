@@ -86,8 +86,8 @@ with tab1:
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.markdown("""
-    operatingMargins vs returnOnEquity : 
-    - Size by ForwardPE
+    Return On Equity vs Operating Margins : 
+    - size by Forward PE
     """)
     fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-']
                              , x="operatingMargins", y="returnOnEquity"

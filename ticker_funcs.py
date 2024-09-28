@@ -330,7 +330,7 @@ def marketTrend(df):
         WHEN perc_Chg_52WkHigh > -10 AND perc_Chg_52WkHigh <= -5 THEN 'Dip'
         WHEN perc_Chg_52WkHigh > -20 AND perc_Chg_52WkHigh <= -10 THEN 'Correction'
         WHEN perc_Chg_52WkHigh <= -20 THEN 'Bearish'
-        ELSE '-' END AS market_trend
+        ELSE NULL END AS market_trend
         ,* 
         FROM df
         """

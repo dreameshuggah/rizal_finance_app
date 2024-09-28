@@ -83,9 +83,11 @@ with tab1:
 
     
     # SCATTER PLOT
-    fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-'], x="operatingMargins", y="returnOnEquity", color="market_trend"
-                             ,size= 'forwardPE'
-                             , hover_data=['shortName'])
+    fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-']
+                             , x="operatingMargins", y="returnOnEquity"
+                             , color="market_trend"
+                             , size= 'forwardPE'
+                             , hover_data=['shortName','currentPrice'])
     st.plotly_chart(fig_scatter, key="ticker0", on_select="rerun")
     
 

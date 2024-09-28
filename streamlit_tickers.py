@@ -206,9 +206,9 @@ with tab2:
     Return On Equity vs Operating Margins : 
     - size by Forward PE
     """)
-    fig_scatter2 = px.scatter(recent_df2[recent_df2['returnOnEquity']<1]
+    fig_scatter2 = px.scatter(recent_df2
                              , x="operatingMargins", y="returnOnEquity"
-                             , color="market_trend"
+                             , color="shortName"
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
                              , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])

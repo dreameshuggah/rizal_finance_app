@@ -212,7 +212,7 @@ with tab2:
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
                              , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])
-    st.plotly_chart(fig_scatter2, key="ticker8", on_select="rerun")
+    st.plotly_chart(fig_scatter2, key="ticker_b8", on_select="rerun")
 
     st.write('\nMonthly Close Price')
     #fig_line = px.line(price_shares_df2, x="Date", y="Close", color="Ticker")

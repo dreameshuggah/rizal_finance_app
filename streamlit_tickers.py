@@ -190,11 +190,11 @@ with tab2:
     st.plotly_chart(fig_line, key="ticker_b7", on_select="rerun")
   
     st.write('\nTotal Revenue')
-    fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="ticker",barmode='group')
+    fig_revenue = px.bar(qtr_df2, x="date", y="Total Revenue", color="shortName",barmode='group')
     st.plotly_chart(fig_revenue, key="ticker_b1", on_select="rerun")
     
     st.write('\nNet Income')
-    fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName")
+    fig_netincome = px.bar(qtr_df2, x="date", y="Net Income", color="shortName",barmode='group')
     st.plotly_chart(fig_netincome, key="ticker_b2", on_select="rerun")
 
     st.write('\nCash And Cash Equivalents')

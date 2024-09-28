@@ -89,7 +89,7 @@ with tab1:
     Return On Equity vs Operating Margins : 
     - size by Forward PE
     """)
-    fig_scatter = px.scatter(buy_df[buy_df['market_trend']!='-']
+    fig_scatter = px.scatter(buy_df]
                              , x="operatingMargins", y="returnOnEquity"
                              , color="market_trend"
                              , size= 'forwardPE'

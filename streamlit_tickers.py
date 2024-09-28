@@ -82,7 +82,7 @@ with tab1:
 
 
     
-    # SCATTER PLOT
+    # ========================= TAB1 SCATTER PLOT =====================
     st.write('\n\n\n')
     st.write('\n\n\n')
     st.markdown("""
@@ -91,10 +91,10 @@ with tab1:
     """)
     fig_scatter = px.scatter(buy_df[buy_df['returnOnEquity']<1]
                              , x="operatingMargins", y="returnOnEquity"
-                             , color="market_trend"
+                             , color="shortName"
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
-                             , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])
+                             , hover_data=['ticker','currentPrice','perc_Chg_52WkHigh'])
     st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
     
 

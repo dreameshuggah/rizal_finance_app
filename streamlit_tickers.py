@@ -107,7 +107,7 @@ with tab1:
 
     st.write('\n\n\n')
     st.write('\n\n\n')
-    st.write('nTicker Recent Statistics')
+    st.write('Ticker Recent Statistics')
     st.dataframe(buy_df[buy_df['ticker']==ticker_select])
 
   

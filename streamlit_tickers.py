@@ -104,10 +104,20 @@ with tab1:
 
     col1a, col2a = st.columns([1,3])
     ticker_select = col1a.selectbox('Select a ticker:',buy_tickers)
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    st.write('nTicker Recent Statistics')
+    st.dataframe(buy_df[buy_df['ticker']==ticker_select])
+
+  
     
     dailyClosePrice_df  = closingPricesDaily(ticker_select)
     longBusinessSummary = buy_df[buy_df['ticker']==ticker_select]['longBusinessSummary'].values[0]
 
+
+
+    
     
     st.write('\n\n\n')
     st.write('\n\n\n')
@@ -119,9 +129,7 @@ with tab1:
             ,'Total Revenue','Net Income','Accounts Receivable','Free Cash Flow','EBITDA'
             ,'Cash And Cash Equivalents','Capital Expenditure'
            ]
-
-
-    st.dataframe(buy_df[buy_df['ticker']==ticker_select])
+  
     st.dataframe(qtr_df_select[cols],use_container_width=True)
 
 

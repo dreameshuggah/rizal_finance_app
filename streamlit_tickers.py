@@ -121,7 +121,7 @@ with tab1:
            ]
 
 
-    
+    st.dataframe(buy_df[buy_df['ticker']==ticker_select])
     st.dataframe(qtr_df_select[cols],use_container_width=True)
 
 

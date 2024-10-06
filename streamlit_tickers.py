@@ -94,7 +94,9 @@ with tab1:
                              , color= 'market_trend'
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
-                             , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh'])
+                             , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh']
+                             , title = 'Return On Equity vs Operating Margins'
+                            )
     st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
     
 

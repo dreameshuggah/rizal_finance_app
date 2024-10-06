@@ -63,7 +63,7 @@ with tab1:
     - forward PE 
     """)
 
-    forwardPE_cutoff = col2.slider("Forward PE cut-off", 10, 40, 25)
+    forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
   
 
     #st.write('\n\n\n')

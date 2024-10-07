@@ -21,6 +21,14 @@ import plotly.express as px
 from ticker_funcs import *
 
 
+
+
+
+
+
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+
+
 vix_df = closingPricesDaily('^VIX')
 
 ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
@@ -39,10 +47,6 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
 df = fetchRecent(ticker_list,recent_ls)
 
 
-
-
-
-st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
 tab1, tab2, tab3 = st.tabs(["Screener", "Comparison","VIX"])

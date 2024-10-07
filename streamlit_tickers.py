@@ -20,13 +20,8 @@ import yfinance as yf
 import plotly.express as px
 from ticker_funcs import *
 
-st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
-
-tab1, tab2, tab3 = st.tabs(["Screener", "Comparison","VIX"])
-
-
-
+vix_df = closingPricesDaily('^VIX')
 
 ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
                'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
@@ -41,11 +36,18 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
                'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT'
                        ]))
 
-
 df = fetchRecent(ticker_list,recent_ls)
 
-vix_df = closingPricesDaily('^VIX')
 
+
+
+
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+
+
+tab1, tab2, tab3 = st.tabs(["Screener", "Comparison","VIX"])
+
+#================= TAB1 ===========================
 with tab1:
     st.title('Stocks Screener')
   
@@ -186,6 +188,9 @@ with tab1:
     st.write(longBusinessSummary)
 
 
+    #======================= END OF TAB1 =====================
+
+
 
 
 
@@ -268,7 +273,12 @@ with tab2:
     st.write('\nMonthly Close Price')
     st.dataframe(price_shares_df2)
 
+    #=================== END OF TAB2 =======================
 
+
+
+
+#====================== TAB3 ===========================
 with tab3:
     st.title('VIX: Volatility Index')
     fig_line = px.line(vix_df, x="Date", y="Close", title='VIX: Volatility Index')#, color="green")

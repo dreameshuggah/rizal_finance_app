@@ -23,7 +23,7 @@ from ticker_funcs import *
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
-tab1, tab2 = st.tabs(["Screener", "Comparison"])
+tab1, tab2, tab3 = st.tabs(["Screener", "Comparison","VIX"])
 
 
 
@@ -43,6 +43,8 @@ ticker_list = list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR
 
 
 df = fetchRecent(ticker_list,recent_ls)
+
+vix_df = closingPricesDaily('^VIX')
 
 with tab1:
     st.title('Stocks Screener')
@@ -265,4 +267,10 @@ with tab2:
     st.write('\nMonthly Close Price')
     st.dataframe(price_shares_df2)
 
+
+with tab3:
+    st.title('VIX: Volatility Index')
+    fig_line = px.line(vix_df, x="Date", y="Close", title='VIX: Volatility Index')#, color="green")
+    st.plotly_chart(fig_line, key="ticker_c1")#, on_select="rerun")
+    st.dataframe(vix_df)
 

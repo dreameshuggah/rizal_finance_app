@@ -114,7 +114,9 @@ def closePriceSharesCount(ticker_list):
     for ticker in ticker_list:
         #print(ticker)
         tmp_df = combineClosePriceSharesCount(ticker)
-        df = pd.concat([df,tmp_df])
+        tmp_df = tmp_df[tmp_df['ticker'].notnull()]
+        if len(tmp_df)>0:
+            df = pd.concat([df,tmp_df])
     return df
 
 

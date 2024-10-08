@@ -123,7 +123,9 @@ def closePriceDailyByList(ticker_list):
     for ticker in ticker_list:
         #print(ticker)
         tmp_df = closingPricesDaily(ticker)
-        df = pd.concat([df,tmp_df])
+        tmp_df = tmp_df[tmp_df['Ticker'].notnull()]
+        if len(tmp_df)>0:
+            df = pd.concat([df,tmp_df])
     return df
 
 

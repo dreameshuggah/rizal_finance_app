@@ -24,11 +24,14 @@ import yfinance as yf
 
 def closingPricesDaily(ticker):
     df = yf.download(ticker, period="5y")
-    df.reset_index(inplace=True)
-    df['Ticker']= ticker
-    df['Date'] = pd.to_datetime(df['Date']).dt.date
-    return df[['Ticker','Date','Close']].sort_values(by=['Date'],ascending=False)
-
+    if len(df)>0:
+        df.reset_index(inplace=True)
+        df['Ticker']= ticker
+        df['Date'] = pd.to_datetime(df['Date']).dt.date
+        df = df[['Ticker','Date','Close']].sort_values(by=['Date'],ascending=False)
+    else:
+        df = pd.DataFrame()
+    return df
 
 
 def closingPrices(ticker):

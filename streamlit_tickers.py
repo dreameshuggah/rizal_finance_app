@@ -229,9 +229,9 @@ with tab2:
     """)
     fig_scatter2 = px.scatter(recent_df2
                              , x="operatingMargins", y="returnOnEquity"
-                             , color='ticker'#"shortName"
+                             , color="shortName"
                              , size= 'forwardPE'
-                             #, symbol = 'market_trend'
+                             , symbol = 'market_trend'
                              , hover_data=['ticker','market_trend','currentPrice','perc_Chg_52WkHigh']
                              )
     st.plotly_chart(fig_scatter2, key="ticker_b8")#, on_select="rerun")

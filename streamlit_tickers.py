@@ -229,7 +229,7 @@ with tab2:
     """)
     fig_scatter2 = px.scatter(recent_df2
                              , x="operatingMargins", y="returnOnEquity"
-                             , color="shortName"
+                             , color='ticker'#"shortName"
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
                              , hover_data=['ticker','market_trend','currentPrice','perc_Chg_52WkHigh']

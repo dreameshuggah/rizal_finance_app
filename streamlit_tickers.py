@@ -228,7 +228,7 @@ with tab2:
     - size by Forward PE
     """)
     fig_scatter2 = px.scatter_3d(recent_df2
-                             , x="operatingMargins", y="returnOnEquity",z='perc_Chg_52WkHigh'
+                             , x="operatingMargins", y="returnOnEquity",z='forwardPE'
                              , color="shortName"
                              , size= 'forwardPE'
                              , symbol = 'market_trend'

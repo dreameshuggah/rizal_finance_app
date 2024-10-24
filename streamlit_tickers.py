@@ -227,8 +227,8 @@ with tab2:
     Return On Equity vs Operating Margins : 
     - size by Forward PE
     """)
-    fig_scatter2 = px.scatter(recent_df2
-                             , x="operatingMargins", y="returnOnEquity"
+    fig_scatter2 = px.scatter_3d(recent_df2
+                             , x="operatingMargins", y="returnOnEquity",z='perc_Chg_52WkHigh'
                              , color="shortName"
                              , size= 'forwardPE'
                              , symbol = 'market_trend'

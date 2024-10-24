@@ -207,7 +207,7 @@ with tab1:
 with tab2:
     st.title('Stocks Comparison')
     
-    ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','QCOM','AMD','MU'])
+    ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list),['NVDA','QCOM','AMD','MU','ACLS'])
     
     qtr_df2 = financials_quarter(ticker_)
     recent_df2 = df[df['ticker'].isin(ticker_)]

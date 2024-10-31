@@ -49,7 +49,7 @@ df = fetchRecent(ticker_list,recent_ls)
 
 
 
-tab1, tab2, tab3 = st.tabs(["Screener", "Comparison","VIX"])
+tab1, tab2, tab3, tab4 = st.tabs(["Screener", "Comparison","VIX","myTickers"])
 
 #================= TAB1 ===========================
 with tab1:
@@ -288,4 +288,8 @@ with tab3:
     fig_line = px.line(vix_df, x="Date", y="Close", title='VIX: Volatility Index')#, color="green")
     st.plotly_chart(fig_line, key="ticker_c1")#, on_select="rerun")
     st.dataframe(vix_df)
+
+with tab4:
+  st.title('My Tickers:')
+  st.dataframe(df)
 

@@ -49,7 +49,7 @@ df = fetchRecent(ticker_list,recent_ls)
 
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["Screener", "Comparison","VIX","myTickers"])
+tab1, tab2, tab3, tab4 = st.tabs(["Screener", "Comparison","VIX","Tickers"])
 
 #================= TAB1 ===========================
 with tab1:

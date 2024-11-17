@@ -209,7 +209,9 @@ with tab2:
     st.title('Stocks Comparison')
     
     ticker_ = st.multiselect('Select a ticker:',sorted(ticker_list)
-                             ,['NVDA','QCOM','AMD','MU','ACLS','LRCX','DELL']
+                             ,['NVDA','QCOM','AMD','MU','ACLS','LRCX','DELL'
+                              ,'ASML','CROX','MRK','INMD'
+                              ]
                             )
     
     qtr_df2 = financials_quarter(ticker_)

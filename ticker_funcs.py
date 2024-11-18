@@ -356,6 +356,7 @@ def fetchRecent(ticker_list,recent_ls):
     qry_recent_ratios = """
                     SELECT
                     -ROUND((fiftyTwoWeekHigh/currentPrice)-1,4)*100 AS perc_Chg_52WkHigh
+                    ,-ROUND((targetMedianPrice/currentPrice)-1,4)*100 AS perc_Chg_targetMedianPrice
                     ,totalDebt/marketCap AS debt_ratio
                     ,*
                     FROM df 

@@ -289,6 +289,7 @@ recent_ls = ['shortName'
             ,'shortRatio'
             ,'trailingPE','forwardPE'    
             ,'currentPrice','fiftyTwoWeekLow','fiftyTwoWeekHigh'
+            ,'targetMedianPrice'
             ,'fiftyDayAverage','twoHundredDayAverage'
             
             ,'returnOnEquity','returnOnAssets','operatingMargins','ebitdaMargins'

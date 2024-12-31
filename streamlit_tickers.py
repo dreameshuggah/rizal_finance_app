@@ -100,11 +100,26 @@ with tab1:
                              , color= 'market_trend'
                              , size= 'forwardPE'
                              , symbol = 'market_trend'
-                             , hover_data=['ticker','shortName','currentPrice','perc_Chg_52WkHigh']
+                             , hover_data=['ticker','shortName','revenueGrowth','currentPrice','perc_Chg_52WkHigh']
                              , title = 'Return On Equity vs Operating Margins: Size by Forward PE'
                              #, height = '700'
                             )
     st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
+
+    st.write('\n\n\n')
+    st.write('\n\n\n')
+    fig_scatter2 = px.scatter(buy_df[buy_df['returnOnEquity']<1]
+                             , x="operatingMargins"
+                             , y="revenueGrowth"
+                             , color= 'market_trend'
+                             , size= 'forwardPE'
+                             , symbol = 'market_trend'
+                             , hover_data=['ticker','shortName','revenueGrowth','currentPrice','perc_Chg_52WkHigh']
+                             , title = 'Return On Equity vs Operating Margins: Size by Forward PE'
+                             #, height = '700'
+                            )
+    st.plotly_chart(fig_scatter2, key="ticker0b")#, on_select="rerun")
+  
     
 
     st.markdown("##")

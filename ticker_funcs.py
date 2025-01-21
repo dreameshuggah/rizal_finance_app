@@ -378,7 +378,7 @@ def filterBuyDf(df,forwardPE_cutoff):
         --AND perc_Chg_52WkHigh < -20
         AND forwardPE < {forwardPE_cutoff}
         
-        ORDER BY forwardPE
+        ORDER BY revenueGrowth --forwardPE
         """.format(forwardPE_cutoff=forwardPE_cutoff)
 
 
